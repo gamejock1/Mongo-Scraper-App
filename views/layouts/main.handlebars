@@ -8,8 +8,23 @@
 	<script src="https://code.jquery.com/jquery.js"></script>
 </head>
 
-<body>
+<body style="margin:0 10%;">
 	{{{ body }}}
 </body>
+
+<script>
+	$( document ).ready(() => {
+
+  $(document).on("click", "#scrapeButton", (event) => {
+    event.preventDefault();
+    $.get("/api/scrape").then(() => {
+			 /*$.getJSON("/api/articles", (data) => {
+				 console.log(data);
+      });*/
+    });
+      
+    });
+  });
+</script>
 
 </html>

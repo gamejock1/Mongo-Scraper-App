@@ -14,10 +14,16 @@ const exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
-const routes = require("./controllers/burgers_controller.js");
-app.use(routes);
 
-const mongoose = require("mongoose");
+
+
+app.get('/', (req, res) => {
+  res.render("index");
+});
+
+
+
+
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/mongoHeadlines";
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI);
@@ -53,9 +59,9 @@ app.get('/api/scrape', (req, res) => {
 
 // Setting up mongoose=====================================================================
 const databaseUrl = "lessondb";
-const collections = ["animals"];
+const collections = ["classifieds"];
 
-const db = require("./db/models");
+const db = require("./db/models/models.js");
 
 
 
